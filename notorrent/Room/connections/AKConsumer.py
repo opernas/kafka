@@ -1,42 +1,50 @@
 from threading import Thread
-from confluent_kafka import Consumer
-from confluent_kafka import KafkaException
-from confluent_kafka import KafkaError
+from kafka import KafkaConsumer,TopicPartition
 
 
 class AKConsumer(Thread):
     def __init__(self, brokerconf, userconf):
-        self.stopConsuming=True
-        self.userconf = userconf
+        self.stopConsuming = False
         self.brokerconf = brokerconf
+        self.userconf = userconf
         self.callback=None
-        self.consumer = Consumer(**self.brokerconf)
+        self.topic_partitions = None
+        self.consumer = KafkaConsumer(**self.brokerconf)
         Thread.__init__(self)
-        self.init()
+        self._init()
 
-    def init(self):
-        self.stopConsuming=False
-        self.consumer.subscribe(self.userconf['topics'])
+    def _init(self):
+        self.topic_partitions = [TopicPartition(self.userconf['topics'][0], self.userconf['partition'][0])]
+        self.consumer.assign(self.topic_partitions)
+        partitions = self.consumer.partitions_for_topic(self.userconf['topics'][0])
+        if self.userconf['partition'][0] in partitions:
+            self._user_wants_old_messages(self.topic_partitions[0])
+
+    def _user_wants_old_messages(self, tp):
+        current_offset = self.consumer.position(tp)
+        user_shift_offset = self.userconf.get('resendnumber', 0)
+        if user_shift_offset > 0: user_shift_offset -= 1
+        self.consumer.seek(tp, current_offset - user_shift_offset)
+        print('User selected to go from ', current_offset, ' to offset ', current_offset - user_shift_offset)
 
     def subscribe(self,callback):
-        self.callback=callback
+        self.callback = callback
 
     def run(self):
-        print('Consuming thread of ', self.userconf['topics'], ' initialized.')
+        self.stopConsuming = False
+        print('Consuming thread from ', self.userconf['topics'], ' in partition ', self.userconf['partition'], ' in.')
         while not self.stopConsuming:
-            msg = self.consumer.poll(timeout=0.1)
-            if msg is None:
-                continue
-            else:
-                self.receive(msg)
-        print('Consuming thread of ', self.userconf['topics'], ' out.')
+            msg = self.consumer.poll(300,1)
+            if msg:
+                self._receive(msg)
+                self.consumer.commit()
+        print('Consuming thread from ', self.userconf['topics'], ' in partition ', self.userconf['partition'], ' out.')
 
-    def receive(self,msg):
+    def _receive(self,msg):
         self.callback(msg)
 
     def stop(self):
-        self.consumer.unsubscribe()
         self.stopConsuming = True
         self.join()
         self.consumer.close()
-        print('Consumer to ', self.userconf['topics'], ' stopped.')
+        print('Consumer to ', self.userconf['topics'], ' in partition ', self.userconf['partition'], ' stopped.')
