@@ -25,7 +25,7 @@ class AKConsumer(Thread):
         user_shift_offset = self.userconf.get('resendnumber', 0)
         if user_shift_offset > 0: user_shift_offset -= 1
         self.consumer.seek(tp, current_offset - user_shift_offset)
-        print('User selected to go from ', current_offset, ' to offset ', current_offset - user_shift_offset)
+        print(' User selected to go from ', current_offset, ' to offset ', current_offset - user_shift_offset)
 
     def subscribe(self,callback):
         self.callback = callback
