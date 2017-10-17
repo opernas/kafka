@@ -2,14 +2,18 @@ from kafka import KafkaProducer
 
 
 class AKProducer:
-    def __init__(self, brokerconf, userconf):
+    def __init__(self):
+        self.userconf = None
+        self.brokerconf = None
+        self.producer = None
+
+    def configure(self, brokerconf, userconf):
         self.userconf = userconf
         self.brokerconf = brokerconf
-        self.producer = None
-        self._init()
-
-    def _init(self):
         self.producer = KafkaProducer(**self.brokerconf)
+
+    def get_name(self):
+        return self.userconf['topics'][0]
 
     def start(self):
         print("Producer to ", self.userconf['topics'], " is ready.")

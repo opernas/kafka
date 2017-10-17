@@ -3,17 +3,21 @@ from kafka import KafkaConsumer,TopicPartition
 
 
 class AKConsumer(Thread):
-    def __init__(self, brokerconf, userconf):
+    def __init__(self):
         self.stopConsuming = False
+        self.brokerconf = None
+        self.userconf = None
+        self.callback = None
+        self.topic_partitions = None
+
+    def get_name(self):
+        return self.userconf['topics'][0]
+
+    def configure(self, brokerconf, userconf):
         self.brokerconf = brokerconf
         self.userconf = userconf
-        self.callback=None
-        self.topic_partitions = None
         self.consumer = KafkaConsumer(**self.brokerconf)
         Thread.__init__(self)
-        self._init()
-
-    def _init(self):
         self.topic_partitions = [TopicPartition(self.userconf['topics'][0], self.userconf['partition'][0])]
         self.consumer.assign(self.topic_partitions)
         partitions = self.consumer.partitions_for_topic(self.userconf['topics'][0])

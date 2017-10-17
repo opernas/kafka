@@ -14,20 +14,22 @@ class TestKafkaConsumer(unittest.TestCase):
         self.confProducer = {'bootstrap_servers': 'localhost:9092'}
         self.messagesReceived = 0
 
-    def onMessage(self,msg):
+    def onMessage(self, msg):
         self.messagesReceived += 1
         print('Received message ',msg)
 
     def test1_givenACorrectConfigurationProducer_whenAKafkaProducerIsCreated_thenConnectionIsEstablished(self):
         self.userConf={'topics': ['prueba'], 'partition': [0]}
-        producer = AKProducer(self.confProducer, self.userConf)
+        producer = AKProducer()
+        producer.configure(self.confProducer, self.userConf)
         producer.start()
         producer.stop()
         assert (1 == 1)
 
     def test2_givenACorrectConfiguration_whenAKafkaConsumerIsCreated_thenConnectionIsEstablished(self):
         self.userConf={'topics': ['prueba'], 'partition': [0]}
-        consumer=AKConsumer(self.confConsumer,self.userConf)
+        consumer=AKConsumer()
+        consumer.configure(self.confConsumer,self.userConf)
         consumer.subscribe(self.onMessage)
         consumer.start()
         consumer.stop()
@@ -35,9 +37,11 @@ class TestKafkaConsumer(unittest.TestCase):
 
     def test3_givenAConsumerAndAProducerConfigured_whenWeSendAMessage_thenMessageIsReceived(self):
         self.userConf={'topics': ['prueba'], 'partition': [0]}
-        consumer = AKConsumer(self.confConsumer, self.userConf)
+        consumer = AKConsumer()
+        consumer.configure(self.confConsumer,self.userConf)
         consumer.subscribe(self.onMessage)
-        producer = AKProducer(self.confProducer,self.userConf)
+        producer = AKProducer()
+        producer.configure(self.confProducer,self.userConf)
         consumer.start()
         producer.start()
         producer.send(bytes('test31 '+str(datetime.now()),encoding='utf-8'))
@@ -48,8 +52,10 @@ class TestKafkaConsumer(unittest.TestCase):
 
     def test4_givenAProducerThatProducesAndExit_whenAConsumerIsInstantiated_thenTwoMessagesAreReceived(self):
         self.userConf={'topics': ['prueba'], 'partition': [0]}
-        producer = AKProducer(self.confProducer,self.userConf)
-        consumer = AKConsumer(self.confConsumer, self.userConf)
+        producer = AKProducer()
+        producer.configure(self.confProducer,self.userConf)
+        consumer = AKConsumer()
+        consumer.configure(self.confConsumer,self.userConf)
         consumer.subscribe(self.onMessage)
         consumer.start()
         producer.start()
@@ -62,8 +68,10 @@ class TestKafkaConsumer(unittest.TestCase):
 
     def test5_givenAPRoducerThatSendsTwoMessages_whenWeDefineTheConsumerToReceive5messages_thenWeReceiveFiveMessages(self):
         self.userConf={'topics': ['prueba'], 'partition': [0],'resendnumber':5}
-        producer = AKProducer(self.confProducer,self.userConf)
-        consumer = AKConsumer(self.confConsumer, self.userConf)
+        producer = AKProducer()
+        producer.configure(self.confProducer,self.userConf)
+        consumer = AKConsumer()
+        consumer.configure(self.confConsumer,self.userConf)
         consumer.subscribe(self.onMessage)
         consumer.start()
         producer.start()
@@ -78,15 +86,18 @@ class TestKafkaConsumer(unittest.TestCase):
         self.userConfConsumer = {'topics': ['prueba'], 'partition': [1]}
         self.userConfProducer = {'topics': ['prueba'], 'partition': [0]}
 
-        consumer_zero = AKConsumer(self.confConsumer, self.userConfConsumerZero)
+        consumer_zero = AKConsumer()
+        consumer_zero.configure(self.confConsumer, self.userConfConsumerZero)
         consumer_zero.subscribe(self.onMessage)
         consumer_zero.start()
 
-        consumer_one = AKConsumer(self.confConsumer, self.userConfConsumer)
+        consumer_one = AKConsumer()
+        consumer_one.configure(self.confConsumer, self.userConfConsumer)
         consumer_one.subscribe(self.onMessage)
         consumer_one.start()
 
-        producer = AKProducer(self.confProducer, self.userConfProducer)
+        producer = AKProducer()
+        producer.configure(self.confProducer, self.userConfProducer)
         producer.start()
         producer.send(bytes('test4 ' + str(datetime.now()), encoding='utf-8'))
         time.sleep(2)
@@ -100,14 +111,17 @@ class TestKafkaConsumer(unittest.TestCase):
         self.userConfConsumerZero={'topics': ['prueba'], 'partition': [0]}
         self.userConfProducer={'topics': ['prueba'], 'partition': [1]}
 
-        consumer_zero = AKConsumer(self.confConsumer, self.userConfConsumerZero)
+        consumer_zero = AKConsumer()
+        consumer_zero.configure(self.confConsumer, self.userConfConsumerZero)
         consumer_zero.subscribe(self.onMessage)
         consumer_zero.start()
-        consumer_one = AKConsumer(self.confConsumer, self.userConfConsumer)
+        consumer_one = AKConsumer()
+        consumer_one.configure(self.confConsumer, self.userConfConsumer)
         consumer_one.subscribe(self.onMessage)
         consumer_one.start()
 
-        producer = AKProducer(self.confProducer,self.userConfProducer)
+        producer = AKProducer()
+        producer.configure(self.confProducer, self.userConfProducer)
         producer.start()
         producer.send(bytes('test4 '+str(datetime.now()),encoding='utf-8'))
         time.sleep(2)
