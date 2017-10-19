@@ -20,7 +20,8 @@ class AKProducerMock:
 
     def send(self, data):
         print("Sent message to mock");
-        self.callback(data)
+        if self.callback:
+            self.callback(data)
 
     def stop(self):
         print("Producer to mock stopped.")

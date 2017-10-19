@@ -1,4 +1,7 @@
-class Flower:
+from Flows.Flow import Flow
+
+
+class Flower(Flow):
     def __init__(self, producer):
         self.producer = producer
 

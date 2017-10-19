@@ -6,6 +6,8 @@
       <sourceFolder url="file://$MODULE_DIR$/Room/connections" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Room/Flows" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Room" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/users" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Room/events" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

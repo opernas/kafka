@@ -1,7 +1,8 @@
+from Flows.Flow import Flow
 from Exceptions import DualFlowDifferentDestination
 
 
-class DualFlow:
+class DualFlow(Flow):
     def __init__(self, flower, flowing):
         self.flower = flower
         self.flowing = flowing
