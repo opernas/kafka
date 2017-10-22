@@ -1,14 +1,15 @@
 import unittest
-from datetime import datetime
+
 from AKConsumerMock import AKConsumerMock
 from AKProducerMock import AKProducerMock
-from Room import Room
+from DualFlow import DualFlow
 from Flower import Flower
 from Flowing import Flowing
-from DualFlow import DualFlow
 from NewFlowEvent import NewFlowEvent
+from TextMessageEvent import TextMessageEvent
 from UserOfflineEvent import UserOfflineEvent
 from UserOnlineEvent import UserOnlineEvent
+from rooms.Room import Room
 
 
 class TestRoom(unittest.TestCase):
@@ -38,44 +39,51 @@ class TestRoom(unittest.TestCase):
         self.lastMessageReceived = msg
         print(msg)
 
-    def test1_givenACorrectDualFlow_whenARoomIsCreated_thenWeCanSendAndReceiveMessages(self):
+    def test1_givenACorrectDualFlow_whenARoomIsCreated_thenANewUserMessageShouldBeReceived(self):
         room = Room(self.roomConf, self.default_dual_flow)
         room.start(self.onMessage)
-        room.stop()
-        assert(1 == 1)
+        user_online_event = UserOnlineEvent('testuser')
+        user_online_event.deserialize(self.lastMessageReceived)
+        assert(self.messagesReceived == 1)
+        assert(user_online_event.get_body() == 'anonymous')
 
-    def test2_givenACorrectCreatedRoom_whenWeSendAMessage_thenTwoMessagesAreReceived_theMessage_andTheEnteringInTheRoom(self):
+    def test2_givenACorrectCreatedRoom_whenWeSendAMessage_thenTwoMessagesAreReceived_lastTextMessage(self):
         room = Room(self.roomConf, self.default_dual_flow)
         room.start(self.onMessage)
-        room.send(bytes('test4 '+str(datetime.now()),encoding='utf-8'))
-        room.stop()
+        new_text_message = TextMessageEvent('testbodymessage')
+        room.send(new_text_message.serialize())
+        new_text_message.deserialize(self.lastMessageReceived)
         assert (self.messagesReceived == 2)
+        assert(new_text_message.get_body() == 'testbodymessage')
 
     def test3_givenADefaultCorrectCreatedRoom_whenWeAskForWorkflows_theResultShouldBeZero(self):
         room = Room(self.roomConf, self.default_dual_flow)
         assert(not room.get_flows() == True)
 
-    def test4_givenARoom_whenAddingANewFlow_thenNumberOfFlowsShouldBeOne(self):
+    def test4_givenARoom_whenAddingANewFlow_thenNumberOfFlowsShouldBeZeroBecauseIsNotAccepted(self):
         confProducer = {'bootstrap_servers': 'localhost:9092'}
         userConf = {'topics': ['prueba'], 'partition': [1]}
         producer = AKProducerMock()
         producer.configure(confProducer, userConf)
         flower = Flower(self.producer)
         room = Room(self.roomConf, self.default_dual_flow)
+        room.start(self.onMessage)
         room.new_flow(flower)
-        assert(room.get_flows())
-        assert(len(room.get_flows()) == 1)
-        assert (self.messagesReceived == 1)
+        assert(len(room.get_flows()) == 0)
 
-    def test5_givenARoom_whenAddingANewFlow_theRoomShouldBeNotifiedWithOneMessage(self):
+    def test5_givenARoom_whenAddingANewFlow_theRoomShouldReceiveAddNewFlowEvent(self):
         confProducer = {'bootstrap_servers': 'localhost:9092'}
         userConf = {'topics': ['prueba'], 'partition': [1]}
         producer = AKProducerMock()
         producer.configure(confProducer, userConf)
         flower = Flower(self.producer)
         room = Room(self.roomConf, self.default_dual_flow)
+        room.start(self.onMessage)
         room.new_flow(flower)
-        assert (self.messagesReceived == 1)
+        newFlowEvent = NewFlowEvent('test')
+        newFlowEvent.deserialize(self.lastMessageReceived)
+        assert (self.messagesReceived == 2)
+        assert (newFlowEvent.get_flow_name() == 'prueba')
 
     def test6_givenARoom_whenAddingANewFlow_theFlowNameCouldBeRetrievedAndShouldBeTheSame(self):
         confProducer = {'bootstrap_servers': 'localhost:9092'}
@@ -85,9 +93,10 @@ class TestRoom(unittest.TestCase):
         flower = Flower(producer)
         room = Room(self.roomConf, self.default_dual_flow)
         room.new_flow(flower)
+        room.accept_flow(flower, self.onMessage)
         assert (room.get_flows()[0].get_name() == 'prueba3')
 
-    def test7_givenARoom_whenWeCreateADualFlowAndPublishAMessage_thenRoomReceivesTwoMessages(self):
+    def test7_givenARoom_whenWeCreateADualFlowAndPublishAMessage_thenRoomReceivesTheFlowMessage(self):
         confConsumer2 = {'bootstrap_servers': 'localhost:9092',
                             'group_id': 'roomConsumerGroupTest',
                             'session_timeout_ms': 6000,
@@ -101,57 +110,57 @@ class TestRoom(unittest.TestCase):
         consumer.configure(confConsumer2, userConf2)
 
         room = Room(self.roomConf, self.default_dual_flow)
+        room.start(self.onMessage)
         dual_flow = DualFlow(Flower(producer), Flowing(consumer))
         room.new_flow(dual_flow)
-        dual_flow.send(bytes('test4 '+str(datetime.now()),encoding='utf-8'))
+        room.accept_flow(dual_flow, self.onMessage)
+
+        new_text_message = TextMessageEvent('testbodymessage7')
+        dual_flow.send(new_text_message.serialize())
+        new_text_message.deserialize(self.lastMessageReceived)
+
+        assert (self.messagesReceived == 3)
+        assert (room.get_flows()[0].get_name() == 'prueba2')
+        assert (new_text_message.get_body() == 'testbodymessage7')
+
+    def test8_givenARoom_whenWeCreateADualFlowButIsNotAccepted_thenRoomDoesNotReceiveTheMessage(self):
+        confConsumer2 = {'bootstrap_servers': 'localhost:9092',
+                         'group_id': 'roomConsumerGroupTest',
+                         'session_timeout_ms': 6000,
+                         'auto_offset_reset': 'smallest'}
+        confProducer2 = {'bootstrap_servers': 'localhost:9092'}
+        userConf2 = {'topics': ['prueba2'], 'partition': [1]}
+        producer = AKProducerMock()
+        producer.configure(confProducer2, userConf2)
+        producer.subscribe(self.onMessage)
+        consumer = AKConsumerMock()
+        consumer.configure(confConsumer2, userConf2)
+
+        room = Room(self.roomConf, self.default_dual_flow)
+        room.start(self.onMessage)
+        dual_flow = DualFlow(Flower(producer), Flowing(consumer))
+        room.new_flow(dual_flow)
+
+        new_text_message = TextMessageEvent('testbodymessage7')
+        dual_flow.send(new_text_message.serialize())
+        new_text_message.deserialize(self.lastMessageReceived)
 
         assert (self.messagesReceived == 2)
-        assert (room.get_flows()[0].get_name() == 'prueba2')
 
-    def test8_givenARoom_whenWeCreateAFlowerAndPublishAMessage_thenRoomReceiveOneMessage(self):
-        confConsumer2 = {'bootstrap_servers': 'localhost:9092',
-                            'group_id': 'roomConsumerGroupTest',
-                            'session_timeout_ms': 6000,
-                            'auto_offset_reset': 'smallest'}
-        confProducer2 = {'bootstrap_servers': 'localhost:9092'}
-        userConf2 = {'topics': ['prueba3'], 'partition': [1]}
-        producer = AKProducerMock()
-        producer.configure(confProducer2, userConf2)
-        consumer = AKConsumerMock()
-        consumer.configure(confConsumer2, userConf2)
-
+    def test9_givenAStartedRoom_whenWeCloseIt_thenRoomReceiveUserOfflineEvent(self):
         room = Room(self.roomConf, self.default_dual_flow)
-        flower = Flower(producer)
-        room.new_flow(flower)
-        flower.send(bytes('test4 '+str(datetime.now()),encoding='utf-8'))
+        room.start(self.onMessage)
+        room.stop()
 
-        assert (self.messagesReceived == 1)
-        assert (room.get_flows()[0].get_name() == 'prueba3')
-
-    def test9_givenARoom_whenWeCreateAFlowerAndPublishAMessage_thenRoomReceiveNewFlowEvent(self):
-        confConsumer2 = {'bootstrap_servers': 'localhost:9092',
-                            'group_id': 'roomConsumerGroupTest',
-                            'session_timeout_ms': 6000,
-                            'auto_offset_reset': 'smallest'}
-        confProducer2 = {'bootstrap_servers': 'localhost:9092'}
-        userConf2 = {'topics': ['prueba3'], 'partition': [1]}
-        producer = AKProducerMock()
-        producer.configure(confProducer2, userConf2)
-        consumer = AKConsumerMock()
-        consumer.configure(confConsumer2, userConf2)
-
-        room = Room(self.roomConf, self.default_dual_flow)
-        flower = Flower(producer)
-        room.new_flow(flower)
-        flower.send(bytes('test4 '+str(datetime.now()),encoding='utf-8'))
-        newFlowEvent = NewFlowEvent('test')
-        newFlowEvent.deserialize(self.lastMessageReceived)
-        assert (newFlowEvent.get_flow_name() == 'prueba3')
+        user_offline_event = UserOfflineEvent('')
+        user_offline_event.deserialize(self.lastMessageReceived)
+        assert (self.messagesReceived == 2)
+        assert (user_offline_event.get_body() == 'anonymous')
 
     def test10_givenARoom_whenWeStartIt_thenANewUserMessageIsReceived(self):
         room = Room(self.roomConf, self.default_dual_flow)
         room.start(self.onMessage)
-        user_online_event = UserOnlineEvent('testuser')
+        user_online_event = UserOnlineEvent('')
         user_online_event.deserialize(self.lastMessageReceived)
         assert(user_online_event.get_body() == 'anonymous')
 

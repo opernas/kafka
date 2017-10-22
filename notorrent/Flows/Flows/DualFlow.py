@@ -1,5 +1,5 @@
-from Flows.Flow import Flow
 from Exceptions import DualFlowDifferentDestination
+from Flows.Flow import Flow
 
 
 class DualFlow(Flow):

@@ -12,15 +12,12 @@ class Room:
         if 'owner' not in self.conf:
             self.conf.update({'owner': 'anonymous'})
 
-
     def on_message(self, msg):
         self.callback(msg)
 
     def start(self, callback):
         self.callback = callback
         self.default_flow.start(callback)
-        for flow in self.flows:
-            flow.start(self.on_message)
         self.notify_new_user()
 
     def notify_new_user(self):
@@ -42,8 +39,11 @@ class Room:
         self.default_flow.send(data)
 
     def new_flow(self, flow):
-        self.flows.append(flow)
         self.notify_new_flow(flow)
+
+    def accept_flow(self, flow, callback):
+        self.flows.append(flow)
+        flow.start(callback)
 
     def delete_flow(self, flow):
         self.flows.remove(flow)
@@ -54,5 +54,6 @@ class Room:
 
     def stop(self):
         self.default_flow.stop()
+        self.notify_off_user()
         for flow in self.flows:
             flow.stop()

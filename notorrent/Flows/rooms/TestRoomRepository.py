@@ -1,7 +1,9 @@
 import unittest
+
 from Exceptions import RoomNameDoesNotExists
-from RoomRepository import RoomRepository
 from FakeRoomCreator import FakeRoomCreator
+
+from rooms.RoomRepository import RoomRepository
 
 
 class TestRoomRepository(unittest.TestCase):

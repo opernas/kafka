@@ -1,5 +1,5 @@
-from Flows.Flow import Flow
 from Exceptions import OperationNotSupported
+from Flows.Flow import Flow
 
 
 class Flowing(Flow):
