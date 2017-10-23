@@ -22,14 +22,13 @@ class DefaultRoomCreator(RoomCreator):
     def get_random_string(self, size=6, chars=string.ascii_uppercase + string.digits):
         return ''.join(random.choice(chars) for _ in range(size))
 
-    def create(self, room_name, callback):
+    def create(self, room_name):
         self.default_consumer_conf.update({'group_id': room_name+self.get_random_string()})
-        self.default_user_endpoint_conf.update({'topics' : ['room_name']})
+        self.default_user_endpoint_conf.update({'topics': [room_name]})
         roomConf = {'name': room_name}
 
         producer = AKProducer()
         producer.configure(self.default_producer_conf, self.default_user_endpoint_conf)
-        producer.subscribe(callback)
         consumer = AKConsumer()
         consumer.configure(self.default_consumer_conf, self.default_user_endpoint_conf)
 

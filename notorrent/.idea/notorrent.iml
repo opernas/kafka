@@ -10,6 +10,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Flows/events" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/plugins" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Flows/rooms" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gui" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

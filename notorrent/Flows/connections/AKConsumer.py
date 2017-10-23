@@ -21,7 +21,7 @@ class AKConsumer(Thread):
         self.topic_partitions = [TopicPartition(self.userconf['topics'][0], self.userconf['partition'][0])]
         self.consumer.assign(self.topic_partitions)
         partitions = self.consumer.partitions_for_topic(self.userconf['topics'][0])
-        if self.userconf['partition'][0] in partitions:
+        if partitions and self.userconf['partition'][0] in partitions:
             self._user_wants_old_messages(self.topic_partitions[0])
 
     def _user_wants_old_messages(self, tp):
