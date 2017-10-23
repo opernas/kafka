@@ -14,22 +14,41 @@ users registers a dual plugin --> create the dual flow --> call new flow in the 
                                                        --> accept the flow --> consumer will receive questions from the user --> room should redirect when a text message is sent to a flow
                                                        --> plugin will set the callback to itself --> works and send message to the flow producer
 '''
-class FlowerPlugin:
+from threading import Thread
+
+
+class FlowerPlugin(Thread):
     def __init__(self, room, flower):
+        Thread.__init__(self)
         self.room = room
         self.flower = flower
         self.register()
 
     def register(self):
         self.room.new_flow(self.flower)
+        ##user subclass callback
+        self.on_registered()
 
-    def start(self):
+    def run(self):
         self.flower.start()
+        ##user subclass callback
+        self.on_start()
 
     def send(self, data):
         self.flower.send(data)
 
     def stop(self):
         self.flower.stop()
+        ##user subclass callback
+        self.on_stop()
+        self.join()
 
+    def on_registered(self):
+        raise NotImplementedError
+
+    def on_start(self):
+        raise NotImplementedError
+
+    def on_stop(self):
+        raise NotImplementedError
 
