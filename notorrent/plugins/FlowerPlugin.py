@@ -15,13 +15,20 @@ users registers a dual plugin --> create the dual flow --> call new flow in the 
                                                        --> plugin will set the callback to itself --> works and send message to the flow producer
 '''
 from threading import Thread
+from Flower import Flower
+from AKProducer import AKProducer
 
 
 class FlowerPlugin(Thread):
-    def __init__(self, room, flower):
+    def __init__(self, flow_name, room):
         Thread.__init__(self)
         self.room = room
-        self.flower = flower
+        confProducer = {'bootstrap_servers': 'localhost:9092'}
+        userConf = {'topics': [flow_name], 'partition': [len(room.get_flows())]}
+        producer = AKProducer()
+        producer.configure(confProducer, userConf)
+        flower = Flower(producer)
+        self.flower = Flower(producer)
         self.register()
 
     def register(self):

@@ -12,6 +12,9 @@ class AKConsumerMock:
         self.brokerconf = brokerconf
         self.userconf = userconf
 
+    def get_partition(self):
+        return 0
+
     def subscribe(self, callback):
         if self.started:
             self.callback = callback

@@ -11,9 +11,3 @@ class TextMessageEvent(Event):
     def serialize(self):
         return json.dumps(self, default=lambda o: o.__dict__,
                           sort_keys=True, indent=4)
-
-    def deserialize(self, received_json):
-        result = json.loads(received_json)
-        self.set_description(result['event_description'])
-        self.set_body(result['body'])
-        self.set_event_type(result['event_type'])

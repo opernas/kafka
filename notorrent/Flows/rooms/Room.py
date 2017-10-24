@@ -29,7 +29,7 @@ class Room:
         self.default_flow.send(new_user_event.serialize())
 
     def notify_new_flow(self, flow):
-        new_flow_event = NewFlowEvent(flow.get_name())
+        new_flow_event = NewFlowEvent(flow.get_name(), flow.get_type(), flow.get_partition())
         self.default_flow.send(new_flow_event.serialize())
 
     def get_flows(self):
@@ -53,7 +53,7 @@ class Room:
         return self.conf['name']
 
     def stop(self):
-        self.default_flow.stop()
         self.notify_off_user()
+        self.default_flow.stop()
         for flow in self.flows:
             flow.stop()

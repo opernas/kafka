@@ -17,6 +17,12 @@ class DualFlow(Flow):
         else:
             raise DualFlowDifferentDestination()
 
+    def get_type(self):
+        return "DualFlow"
+
+    def get_partition(self):
+        return self.flowing.get_partition()
+
     def send(self, data):
         self.flower.send(data)
 

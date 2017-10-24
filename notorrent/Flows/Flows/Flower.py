@@ -11,6 +11,12 @@ class Flower(Flow):
     def get_name(self):
         return self.producer.get_name()
 
+    def get_type(self):
+        return "Flower"
+
+    def get_partition(self):
+        return self.producer.get_partition()
+
     def start(self, *args):
         self.producer.start()
 

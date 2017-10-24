@@ -80,7 +80,7 @@ class TestRoom(unittest.TestCase):
         room = Room(self.roomConf, self.default_dual_flow)
         room.start(self.onMessage)
         room.new_flow(flower)
-        newFlowEvent = NewFlowEvent('test')
+        newFlowEvent = NewFlowEvent('test', 'flower',flower.get_partition())
         newFlowEvent.deserialize(self.lastMessageReceived)
         assert (self.messagesReceived == 2)
         assert (newFlowEvent.get_flow_name() == 'prueba')

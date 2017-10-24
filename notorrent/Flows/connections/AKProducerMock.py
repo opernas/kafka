@@ -16,6 +16,9 @@ class AKProducerMock:
     def subscribe(self,callback):
         self.callback=callback
 
+    def get_partition(self):
+        return 0
+
     def start(self):
         self.started = True
         print("Producer to mock is ready.")

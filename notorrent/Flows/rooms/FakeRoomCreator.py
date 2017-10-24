@@ -22,7 +22,7 @@ class FakeRoomCreator(RoomCreator):
     def get_random_string(self, size=6, chars=string.ascii_uppercase + string.digits):
         return ''.join(random.choice(chars) for _ in range(size))
 
-    def create(self, room_name, callback):
+    def create(self, room_name, resend_messages_number=0, callback=None):
         self.default_consumer_conf.update({'group_id': room_name+self.get_random_string()})
         self.default_user_endpoint_conf.update({'topics': [room_name]})
         roomConf = {'name': room_name}

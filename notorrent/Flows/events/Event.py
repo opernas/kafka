@@ -1,3 +1,5 @@
+import json
+
 class Event(object):
     def __init__(self, event_type, body):
         self.body = body
@@ -26,4 +28,7 @@ class Event(object):
         raise NotImplementedError
 
     def deserialize(self, received_json):
-        raise NotImplementedError
+        result = json.loads(received_json)
+        self.set_description(result['event_description'])
+        self.set_body(result['body'])
+        self.set_event_type(result['event_type'])

@@ -13,6 +13,9 @@ class AKConsumer(Thread):
     def get_name(self):
         return self.userconf['topics'][0]
 
+    def get_partition(self):
+        return self.userconf['partition'][0]
+
     def configure(self, brokerconf, userconf):
         self.brokerconf = brokerconf
         self.userconf = userconf
@@ -28,8 +31,10 @@ class AKConsumer(Thread):
         current_offset = self.consumer.position(tp)
         user_shift_offset = self.userconf.get('resendnumber', 0)
         if user_shift_offset > 0: user_shift_offset -= 1
-        self.consumer.seek(tp, current_offset - user_shift_offset)
-        print(' User selected to go from ', current_offset, ' to offset ', current_offset - user_shift_offset)
+        final_offset=current_offset - user_shift_offset
+        if final_offset > 0:
+            self.consumer.seek(tp, current_offset - user_shift_offset)
+            print(' User selected to go from ', current_offset, ' to offset ', current_offset - user_shift_offset)
 
     def subscribe(self,callback):
         self.callback = callback
@@ -38,13 +43,14 @@ class AKConsumer(Thread):
         self.stopConsuming = False
         print('Consuming thread from ', self.userconf['topics'], ' in partition ', self.userconf['partition'], ' in.')
         while not self.stopConsuming:
-            msg = self.consumer.poll(300,1)
-            if msg:
-                self._receive(msg)
-                self.consumer.commit()
+            partitions = self.consumer.poll(300,1)
+            for p in partitions:
+                for response in partitions[p]:
+                    self._receive(response)
+                    self.consumer.commit()
         print('Consuming thread from ', self.userconf['topics'], ' in partition ', self.userconf['partition'], ' out.')
 
-    def _receive(self,msg):
+    def _receive(self, msg):
         self.callback(msg)
 
     def stop(self):

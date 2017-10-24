@@ -17,14 +17,15 @@ class DefaultRoomCreator(RoomCreator):
                                       'session_timeout_ms': 6000,
                                       'auto_offset_reset': 'smallest'}
         self.default_producer_conf = {'bootstrap_servers': 'localhost:9092'}
-        self.default_user_endpoint_conf = {'partition': [1]} ##topics': ['prueba']
+        self.default_user_endpoint_conf = {'partition': [0]} ##topics': ['prueba']
 
     def get_random_string(self, size=6, chars=string.ascii_uppercase + string.digits):
         return ''.join(random.choice(chars) for _ in range(size))
 
-    def create(self, room_name):
-        self.default_consumer_conf.update({'group_id': room_name+self.get_random_string()})
+    def create(self, room_name, resend_messages_number=0):
+        self.default_consumer_conf.update({'group_id': room_name})
         self.default_user_endpoint_conf.update({'topics': [room_name]})
+        self.default_user_endpoint_conf.update({'resendnumber': int(resend_messages_number)})
         roomConf = {'name': room_name}
 
         producer = AKProducer()

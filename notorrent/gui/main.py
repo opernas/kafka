@@ -17,6 +17,9 @@ class FlowApp:
     def make_widgets(self):
         self.chat_screen = ChatScreen(self.chat_frame, self.rooms_repo)
 
+    def close(self):
+        self.chat_screen.close()
+
 
 if __name__ == "__main__":
     root = Tk()
@@ -52,6 +55,7 @@ if __name__ == "__main__":
     ctr_mid.grid(row=0, column=1, sticky="nsew")
     ctr_right.grid(row=0, column=2, sticky="ns")
 
-    FlowApp(ctr_mid, ctr_right, RoomRepository())
+    app=FlowApp(ctr_mid, ctr_right, RoomRepository())
 
     root.mainloop()
+    app.close()

@@ -22,11 +22,16 @@ class RoomRepository:
             raise RoomNameDoesNotExists
 
     def start_all(self):
-        for room in self.rooms:
-            self.rooms.start()
+        for room_name, room in self.rooms.items():
+            room.start()
 
     def stop_all(self):
-        for room in self.rooms:
-            self.rooms.stop()
+        for room_name, room in self.rooms.items():
+            room.stop()
+
+    def close(self):
+        self.stop_all()
+        self.rooms.clear()
+        print("all cleared in repository")
 
 
