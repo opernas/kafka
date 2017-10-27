@@ -10,9 +10,6 @@ class Flowing(Flow):
     def get_name(self):
         return self.consumer.get_name()
 
-    def get_type(self):
-        return "Flowing"
-
     def get_partition(self):
         return self.consumer.get_partition()
 

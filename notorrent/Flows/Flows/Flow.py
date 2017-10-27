@@ -8,9 +8,6 @@ class Flow:
     def start(self, *args):
         raise NotImplementedError
 
-    def get_type(self):
-        raise NotImplementedError
-
     def get_partition(self):
         raise NotImplementedError
 

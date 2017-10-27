@@ -24,7 +24,7 @@ class FlowApp:
 if __name__ == "__main__":
     root = Tk()
     rooms = RoomRepository()
-    root.geometry('1024x768')
+    root.geometry('600x400')
     root.configure(bg='beige')
     root.winfo_toplevel().title("FlowApp")
 
@@ -50,7 +50,7 @@ if __name__ == "__main__":
     center.grid_columnconfigure(1, weight=1)
 
     ctr_mid = Frame(center, bg='white', width=824, height=540, padx=3, pady=3)
-    ctr_right = Frame(center, bg='blue', width=200, height=540, padx=3, pady=3)
+    ctr_right = Frame(center, bg='blue', width=0, height=540, padx=3, pady=3)
 
     ctr_mid.grid(row=0, column=1, sticky="nsew")
     ctr_right.grid(row=0, column=2, sticky="ns")

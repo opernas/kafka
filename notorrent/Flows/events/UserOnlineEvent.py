@@ -1,16 +1,6 @@
-import json
-from Event import Event
+from GenericEvent import GenericEvent
 
 
-class UserOnlineEvent(Event):
-    def __init__(self, user_name, description=None):
-        super().__init__('UserOnline', user_name)
-        if description is None:
-            super().set_description("User online: "+user_name)
-
-    def serialize(self):
-        return json.dumps(self, default=lambda o: o.__dict__,
-                          sort_keys=True, indent=4)
-
-    def get_flow_name(self):
-        return self.get_body()
+class UserOnlineEvent(GenericEvent):
+    def __init__(self, user_name, description=""):
+        super().__init__('UserOnline', user_name, description)

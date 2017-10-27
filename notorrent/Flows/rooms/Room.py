@@ -1,6 +1,7 @@
 from events.NewFlowEvent import NewFlowEvent
 from events.UserOnlineEvent import UserOnlineEvent
 from events.UserOfflineEvent import UserOfflineEvent
+from DefaultFlowCreator import DefaultFlowCreator
 
 
 class Room:
@@ -28,8 +29,22 @@ class Room:
         new_user_event = UserOfflineEvent(self.conf['owner'])
         self.default_flow.send(new_user_event.serialize())
 
+    def flow_goes_to_this_room(self, flow):
+        if self.default_flow.get_name() == flow.get_name():
+            return True
+        else:
+            return False
+
+    def notify_to_remote_control_channel(self, flow, flow_event):
+        if flow.get_name() != self.default_flow.get_name():
+            flow_control_channel = DefaultFlowCreator().create_flower(flow.get_name(), 0)
+            flow_control_channel.start()
+            flow_control_channel.send(flow_event.serialize())
+            flow_control_channel.stop()
+
     def notify_new_flow(self, flow):
-        new_flow_event = NewFlowEvent(flow.get_name(), flow.get_type(), flow.get_partition())
+        new_flow_event = NewFlowEvent(flow.get_name(), flow.get_partition())
+        self.notify_to_remote_control_channel(flow,new_flow_event)
         self.default_flow.send(new_flow_event.serialize())
 
     def get_flows(self):

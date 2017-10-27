@@ -1,13 +1,16 @@
 import random
 import time
-from FlowerPlugin import FlowerPlugin
+from GeneratorPlugin import GeneratorPlugin
 from TextMessageEvent import TextMessageEvent
 
 
-class RandomNumberPlugin(FlowerPlugin):
-    def __init__(self, room):
-        super().__init__("random_number_plugin",room)
+class GeneratorTelefonicaQuotationPlugin(GeneratorPlugin):
+    def __init__(self):
+        super().__init__()
         self.stopped = False
+
+    def register(self, room):
+        super().register("Telefonica_quotation", 1, room)
 
     def on_registered(self):
         print("on registered")

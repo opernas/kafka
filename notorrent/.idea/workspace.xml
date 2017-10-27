@@ -11,11 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ChatScreen.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ChatScreen.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gui/ChatScreen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="133" column="28" lean-forward="false" selection-start-line="133" selection-start-column="28" selection-end-line="133" selection-end-column="28" />
+            <state relative-caret-position="135">
+              <caret line="165" column="25" lean-forward="true" selection-start-line="165" selection-start-column="25" selection-end-line="165" selection-end-column="25" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -23,14 +23,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NewFlowEvent.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Flows/events/NewFlowEvent.py">
+      <file leaf-file-name="Room.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Flows/rooms/Room.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="39" column="51" lean-forward="false" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+            <state relative-caret-position="289">
+              <caret line="46" column="66" lean-forward="true" selection-start-line="46" selection-start-column="66" selection-end-line="46" selection-end-column="66" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#0#44#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StorerPlugin.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/plugins/StorerPlugin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -46,11 +56,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>consumer</find>
-      <find>subscribe</find>
-      <find>conf</find>
-      <find>topics</find>
-      <find>commit</find>
       <find>OFFSET_BEGINNING</find>
       <find>position</find>
       <find>set_consumer_time</find>
@@ -64,76 +69,85 @@
       <find>is_assigned</find>
       <find>update</find>
       <find>.start</find>
-      <find>textmessage</find>
       <find>useronline</find>
       <find>send</find>
       <find>scrollbar</find>
       <find>newflowevent</find>
       <find>accept</find>
       <find>NewFlowEvent</find>
+      <find>newfloweve</find>
+      <find>Event(</find>
+      <find>string_data</find>
+      <find>try</find>
+      <find>textmessage</find>
+      <find>on_add</find>
+      <find>entry_room_name</find>
+      <find>room_joined_name</find>
+      <find>accept_flow</find>
+      <find>tk()</find>
+      <find>room.accept_flow</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Room/TestRoomRepository.py" />
-        <option value="$PROJECT_DIR$/Room/RoomRepository.py" />
-        <option value="$PROJECT_DIR$/Room/Exceptions.py" />
-        <option value="$PROJECT_DIR$/Room/events/NewFlow.py" />
-        <option value="$PROJECT_DIR$/Room/Flows/Flow.py" />
-        <option value="$PROJECT_DIR$/Room/Flows/Flower.py" />
-        <option value="$PROJECT_DIR$/Room/Flows/DualFlow.py" />
-        <option value="$PROJECT_DIR$/Room/Flows/Flowing.py" />
-        <option value="$PROJECT_DIR$/Room/events/NewFlowEvent.py" />
-        <option value="$PROJECT_DIR$/Room/events/Event.py" />
-        <option value="$PROJECT_DIR$/Room/events/NewUserEvent.py" />
-        <option value="$PROJECT_DIR$/Room/events/UserOfflineEvent.py" />
-        <option value="$PROJECT_DIR$/Room/events/UserOnlineEvent.py" />
-        <option value="$PROJECT_DIR$/Room/connections/AKConsumerMock.py" />
-        <option value="$PROJECT_DIR$/Room/connections/AKProducerMock.py" />
-        <option value="$PROJECT_DIR$/Room/events/TextMessageEvent.py" />
-        <option value="$PROJECT_DIR$/Room/Room.py" />
-        <option value="$PROJECT_DIR$/Room/Room.py" />
         <option value="$PROJECT_DIR$/Room/TestRoom.py" />
         <option value="$PROJECT_DIR$/plugins/Plugin.py" />
-        <option value="$PROJECT_DIR$/plugins/RedirectionPlugin.py" />
-        <option value="$PROJECT_DIR$/plugins/RedirectProcessedPlugin.py" />
         <option value="$PROJECT_DIR$/plugins/ServicePlugin.py" />
-        <option value="$PROJECT_DIR$/plugins/TestFlower.py" />
         <option value="$PROJECT_DIR$/gui/ChatMainScreen.py" />
         <option value="$PROJECT_DIR$/userplugins/RandonNumberPlugins.py" />
         <option value="$PROJECT_DIR$/userplugins/RandomNumberPlugins.py" />
-        <option value="$PROJECT_DIR$/userplugins/RandomNumberPlugin.py" />
-        <option value="$PROJECT_DIR$/plugins/FlowerPlugin.py" />
         <option value="$PROJECT_DIR$/Flows/rooms/RoomCreator.py" />
         <option value="$PROJECT_DIR$/Flows/rooms/FakeRoomCreator.py" />
-        <option value="$PROJECT_DIR$/gui/main.py" />
         <option value="$PROJECT_DIR$/Flows/rooms/RoomRepository.py" />
         <option value="$PROJECT_DIR$/Flows/rooms/DefaultRoomCreator.py" />
-        <option value="$PROJECT_DIR$/Flows/events/UserOnlineEvent.py" />
-        <option value="$PROJECT_DIR$/Flows/events/TextMessageEvent.py" />
-        <option value="$PROJECT_DIR$/Flows/events/UserOfflineEvent.py" />
-        <option value="$PROJECT_DIR$/Flows/events/Event.py" />
-        <option value="$PROJECT_DIR$/Flows/Flows/Flow.py" />
         <option value="$PROJECT_DIR$/Flows/connections/AKConsumer.py" />
         <option value="$PROJECT_DIR$/Flows/connections/AKConsumerMock.py" />
         <option value="$PROJECT_DIR$/Flows/connections/AKProducerMock.py" />
+        <option value="$PROJECT_DIR$/Flows/rooms/TestRoom.py" />
         <option value="$PROJECT_DIR$/Flows/Flows/Flower.py" />
         <option value="$PROJECT_DIR$/Flows/Flows/Flowing.py" />
-        <option value="$PROJECT_DIR$/Flows/Flows/DualFlow.py" />
-        <option value="$PROJECT_DIR$/Flows/rooms/Room.py" />
-        <option value="$PROJECT_DIR$/Flows/rooms/TestRoom.py" />
-        <option value="$PROJECT_DIR$/Flows/Flows/DefaultFlowCreator.py" />
-        <option value="$PROJECT_DIR$/Flows/connections/AKProducer.py" />
+        <option value="$PROJECT_DIR$/Flows/Flows/FlowCreator.py" />
+        <option value="$PROJECT_DIR$/Flows/Flows/MockFlowCreator.py" />
+        <option value="$PROJECT_DIR$/Flows/events/GenericEVent.py" />
+        <option value="$PROJECT_DIR$/Flows/events/Event.py" />
+        <option value="$PROJECT_DIR$/Flows/events/TextMessageEvent.py" />
+        <option value="$PROJECT_DIR$/Flows/events/UserOnlineEvent.py" />
+        <option value="$PROJECT_DIR$/Flows/events/UserOfflineEvent.py" />
         <option value="$PROJECT_DIR$/Flows/events/NewFlowEvent.py" />
+        <option value="$PROJECT_DIR$/userplugins/SiemensQuotation.py" />
+        <option value="$PROJECT_DIR$/userplugins/TelefonicaQuotation.py" />
+        <option value="$PROJECT_DIR$/Flows/Flows/DefaultFlowCreator.py" />
+        <option value="$PROJECT_DIR$/userplugins/BackupAndAckPlugin.py" />
+        <option value="$PROJECT_DIR$/userplugins/RandomNumberPlugin.py" />
+        <option value="$PROJECT_DIR$/Flows/events/GenericEvent.py" />
+        <option value="$PROJECT_DIR$/userplugins/RedirectToAnotherRoom.py" />
+        <option value="$PROJECT_DIR$/gui/main.py" />
+        <option value="$PROJECT_DIR$/Flows/Flows/Flow.py" />
+        <option value="$PROJECT_DIR$/Flows/rooms/Notifier.py" />
+        <option value="$PROJECT_DIR$/Flows/connections/AKProducer.py" />
+        <option value="$PROJECT_DIR$/plugins/FlowerPlugin.py" />
+        <option value="$PROJECT_DIR$/userplugins/SiemensQuotationPlugin.py" />
+        <option value="$PROJECT_DIR$/userplugins/AuditTrailAndACK.py" />
+        <option value="$PROJECT_DIR$/plugins/RedirectProcessedPlugin.py" />
+        <option value="$PROJECT_DIR$/userplugins/RedirectToAnotherRoomPlugin.py" />
+        <option value="$PROJECT_DIR$/plugins/RedirectionPlugin.py" />
+        <option value="$PROJECT_DIR$/plugins/TestFlower.py" />
+        <option value="$PROJECT_DIR$/Flows/rooms/Room.py" />
+        <option value="$PROJECT_DIR$/Flows/Flows/DualFlow.py" />
+        <option value="$PROJECT_DIR$/plugins/ReplierPlugin.py" />
+        <option value="$PROJECT_DIR$/userplugins/TelefonicaMT1000Plugin.py" />
+        <option value="$PROJECT_DIR$/userplugins/TelefonicaQuotationPlugin.py" />
         <option value="$PROJECT_DIR$/gui/ChatScreen.py" />
+        <option value="$PROJECT_DIR$/plugins/Storer.py" />
+        <option value="$PROJECT_DIR$/plugins/StorerPlugin.py" />
+        <option value="$PROJECT_DIR$/plugins/GeneratorPlugin.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-3" />
-    <option name="width" value="1922" />
-    <option name="height" value="923" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="width" value="1918" />
+    <option name="height" value="925" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -194,6 +208,9 @@
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Room/Flows" />
       <recent name="$PROJECT_DIR$/Room/connections" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/userplugins" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -401,15 +418,18 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.main (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in TestRoom.py" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in TestFlower.py" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in TestRoomRepository.py" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in TestRoomRepository.py" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in TestRoom.py" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in TestFlower.py" />
         <item index="4" class="java.lang.String" itemvalue="Python.testKafka" />
       </list>
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -422,29 +442,14 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_TestRoom_py - 2017.10.24 at 21h 40m 10s.xml">
-      <configuration name="Unittests in TestRoom.py" configurationId="tests" />
+    <history-entry file="Unittests_in_TestRoomRepository_py - 2017.10.25 at 11h 01m 40s.xml">
+      <configuration name="Unittests in TestRoomRepository.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_TestRoom_py - 2017.10.24 at 21h 40m 49s.xml">
-      <configuration name="Unittests in TestRoom.py" configurationId="tests" />
+    <history-entry file="Unittests_in_TestRoomRepository_py - 2017.10.25 at 11h 01m 48s.xml">
+      <configuration name="Unittests in TestRoomRepository.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_TestRoom_py - 2017.10.24 at 21h 53m 18s.xml">
-      <configuration name="Unittests in TestRoom.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_TestRoom_py - 2017.10.24 at 22h 02m 12s.xml">
-      <configuration name="Unittests in TestRoom.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_TestRoom_py - 2017.10.24 at 22h 11m 31s.xml">
-      <configuration name="Unittests in TestRoom.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_TestRoom_py - 2017.10.24 at 22h 11m 51s.xml">
-      <configuration name="Unittests in TestRoom.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_TestRoom_py - 2017.10.24 at 22h 11m 57s.xml">
-      <configuration name="Unittests in TestRoom.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_TestRoom_py - 2017.10.24 at 22h 12m 23s.xml">
-      <configuration name="Unittests in TestRoom.py" configurationId="tests" />
+    <history-entry file="Unittests_in_TestRoomRepository_py - 2017.10.25 at 11h 09m 56s.xml">
+      <configuration name="Unittests in TestRoomRepository.py" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_TestRoom_py - 2017.10.24 at 22h 12m 44s.xml">
       <configuration name="Unittests in TestRoom.py" configurationId="tests" />
@@ -452,20 +457,35 @@
     <history-entry file="Unittests_in_TestRoom_py - 2017.10.24 at 22h 13m 02s.xml">
       <configuration name="Unittests in TestRoom.py" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_in_TestRoom_py - 2017.10.25 at 10h 35m 34s.xml">
+      <configuration name="Unittests in TestRoom.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_TestRoom_py - 2017.10.25 at 10h 37m 16s.xml">
+      <configuration name="Unittests in TestRoom.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_TestRoom_py - 2017.10.25 at 10h 38m 32s.xml">
+      <configuration name="Unittests in TestRoom.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_TestRoom_py - 2017.10.25 at 10h 39m 29s.xml">
+      <configuration name="Unittests in TestRoom.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_TestRoom_py - 2017.10.25 at 11h 01m 33s.xml">
+      <configuration name="Unittests in TestRoom.py" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="0" width="1922" height="923" extended-state="0" />
+    <frame x="-3" y="0" width="1926" height="921" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15048026" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18477103" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3779141" sideWeight="0.215625" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27142859" sideWeight="0.74322915" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34342104" sideWeight="0.22374798" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2707254" sideWeight="0.74010694" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32883435" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38051948" sideWeight="0.784375" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25390625" sideWeight="0.77625203" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -504,14 +524,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Flows/rooms/Room.py</url>
-          <line>15</line>
-          <option name="timeStamp" value="335" />
+          <url>file://$PROJECT_DIR$/Flows/events/NewFlowEvent.py</url>
+          <line>26</line>
+          <option name="timeStamp" value="411" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Flows/events/NewFlowEvent.py</url>
-          <line>45</line>
-          <option name="timeStamp" value="411" />
+          <url>file://$PROJECT_DIR$/Flows/events/GenericEvent.py</url>
+          <line>39</line>
+          <option name="timeStamp" value="439" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -521,7 +541,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="412" />
+      <option name="time" value="479" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -530,92 +550,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///usr/lib/python3.5/selectors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="447" column="0" lean-forward="false" selection-start-line="447" selection-start-column="0" selection-end-line="447" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../envs/lib/python3.5/site-packages/kafka/cluster.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../envs/lib/python3.5/site-packages/kafka/consumer/subscription_state.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="203" column="0" lean-forward="false" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../envs/lib/python3.5/site-packages/kafka/client_async.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="714" column="0" lean-forward="false" selection-start-line="714" selection-start-column="0" selection-end-line="714" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3.5/unittest/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Room/testRoom.py" />
-    <entry file="file://$PROJECT_DIR$/Room/Flows/TestFlow.py" />
-    <entry file="file://$PROJECT_DIR$/../envs/lib/python3.5/site-packages/kafka/structs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3.5/unittest/suite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flows/Exceptions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3.5/json/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="270" column="9" lean-forward="false" selection-start-line="270" selection-start-column="4" selection-end-line="270" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3.5/contextlib.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/ServicePlugin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="25" lean-forward="false" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/RedirectionPlugin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="20" lean-forward="false" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/lib/python3.5/threading.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -631,31 +565,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/RedirectProcessedPlugin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../envs/lib/python3.5/site-packages/gui.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118">
           <caret line="34" column="16" lean-forward="true" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flows/rooms/TestRoomRepository.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../envs/lib/python3.5/site-packages/kafka/producer/kafka.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="647" column="0" lean-forward="false" selection-start-line="647" selection-start-column="0" selection-end-line="647" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -673,18 +586,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/TestFlower.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="26" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Flows/rooms/FakeRoomCreator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="27" column="38" lean-forward="true" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -692,7 +597,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="54" lean-forward="false" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -700,15 +604,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="18" column="37" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3.5/tkinter/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="2533" column="0" lean-forward="false" selection-start-line="2533" selection-start-column="0" selection-end-line="2533" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -716,19 +611,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
           <caret line="463" column="18" lean-forward="true" selection-start-line="463" selection-start-column="18" selection-end-line="463" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gui/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1">
-          <caret line="9" column="15" lean-forward="false" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-            <marker date="1508861326998" expanded="true" signature="115:568" ph="..." />
-            <marker date="1508861326998" expanded="true" signature="652:1913" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -736,41 +618,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-85">
           <caret line="8" column="45" lean-forward="true" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
-          <folding>
-            <marker date="1508861892066" expanded="true" signature="68:750" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/FlowerPlugin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flows/events/UserOfflineEvent.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="30" lean-forward="false" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flows/events/UserOnlineEvent.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="30" lean-forward="false" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flows/events/TextMessageEvent.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="37" lean-forward="false" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -782,37 +629,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flows/rooms/DefaultRoomCreator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="21" column="53" lean-forward="false" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flows/Flows/Flow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flows/connections/AKConsumer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Flows/connections/AKProducerMock.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
           <caret line="19" column="16" lean-forward="false" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -820,23 +640,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flows/Flows/Flowing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flows/Flows/DualFlow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -848,73 +651,312 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Flows/Flows/Flowing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="10" column="39" lean-forward="false" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flows/Flows/FlowCreator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flows/Flows/MockFlowCreator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="28" column="50" lean-forward="true" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Flows/events/Event.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flows/rooms/Room.py">
+    <entry file="file://$PROJECT_DIR$/Flows/events/UserOnlineEvent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flows/Flows/Flower.py">
+    <entry file="file://$PROJECT_DIR$/Flows/events/UserOfflineEvent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flows/connections/AKProducer.py">
+    <entry file="file://$PROJECT_DIR$/Flows/rooms/TestRoomRepository.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="8" column="29" lean-forward="false" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flows/Flows/DefaultFlowCreator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="21" column="39" lean-forward="false" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/userplugins/RandomNumberPlugin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="272">
+          <caret line="21" column="36" lean-forward="false" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Flows/events/NewFlowEvent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="39" column="51" lean-forward="false" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+        <state relative-caret-position="238">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file:///usr/lib/python3.5/json/decoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="338" column="0" lean-forward="false" selection-start-line="338" selection-start-column="0" selection-end-line="338" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flows/events/TextMessageEvent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flows/connections/AKConsumer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.5/tkinter/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="1564" column="15" lean-forward="true" selection-start-line="1564" selection-start-column="15" selection-end-line="1564" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <marker date="1509026128843" expanded="true" signature="115:568" ph="..." />
+            <marker date="1509026128843" expanded="true" signature="652:1910" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flows/events/GenericEvent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flows/Flows/Flow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="33" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flows/rooms/Notifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flows/Flows/Flower.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/RedirectionPlugin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/TestFlower.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userplugins/SiemensQuotationPlugin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../envs/lib/python3.5/site-packages/kafka/producer/kafka.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="512" column="0" lean-forward="false" selection-start-line="512" selection-start-column="0" selection-end-line="512" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flows/connections/AKProducer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flows/rooms/DefaultRoomCreator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="21" column="53" lean-forward="false" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flows/Flows/DualFlow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flows/Flows/DefaultFlowCreator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="29" column="48" lean-forward="false" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userplugins/RedirectToAnotherRoomPlugin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userplugins/AuditTrailAndACK.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="51" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userplugins/RandomNumberPlugin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userplugins/ReplierTelefonicaMT1000Plugin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="35" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/RedirectProcessedPlugin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/ServicePlugin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="25" lean-forward="false" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flows/rooms/Room.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="46" column="66" lean-forward="true" selection-start-line="46" selection-start-column="66" selection-end-line="46" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gui/ChatScreen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="133" column="28" lean-forward="false" selection-start-line="133" selection-start-column="28" selection-end-line="133" selection-end-column="28" />
+        <state relative-caret-position="135">
+          <caret line="165" column="25" lean-forward="true" selection-start-line="165" selection-start-column="25" selection-end-line="165" selection-end-column="25" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/ReplierPlugin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="16" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userplugins/GeneratorTelefonicaQuotationPlugin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/GeneratorPlugin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="21" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/StorerPlugin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

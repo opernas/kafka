@@ -3,8 +3,7 @@ from DefaultRoomCreator import DefaultRoomCreator
 from TextMessageEvent import TextMessageEvent
 from NewFlowEvent import NewFlowEvent
 from DefaultFlowCreator import DefaultFlowCreator
-
-from Event import Event
+from GenericEvent import GenericEvent
 from pydoc import locate
 
 
@@ -27,7 +26,6 @@ class ChatScreen:
         self.accept_flow_window = None
         self.room_joined_name = None
         self.event_flow = None
-        self.string_data = None
         self.init_grid()
         self.create_chat_screen()
         self.create_write_frame()
@@ -66,17 +64,20 @@ class ChatScreen:
         self.scrollbar.config(command=self.listbox.yview)
 
     def on_wants_plugin(self):
-        print("joining room")
+        print("Adding plugin in room ", self.room_joined_name)
         self.join_window = Tk()
-        self.join_window.title('Joining room')
+        self.join_window.title('Adding plugin to room '+self.room_joined_name)
         frame = Frame(self.join_window)
         Label1 = Label(self.join_window, text='Plugin:')
         Label1.pack(padx=15, pady=5)
         self.plugin_room_name = Entry(self.join_window, bd=5)
         self.plugin_room_name.pack(padx=15, pady=5)
-        btn = Button(frame, text=' Join ', command=self.on_plugin_join)
+        btn = Button(frame, text=' Add plugin ', command=self.on_plugin_join)
         btn.pack(side=RIGHT, padx=5)
         frame.pack(padx=100, pady=19)
+        x = self.main_frame.winfo_rootx()
+        y = self.main_frame.winfo_rooty()
+        self.join_window.geometry('%dx%d+%d+%d'%(400,150,x,y))
         self.join_window.mainloop()
 
     def on_plugin_join(self):
@@ -86,9 +87,10 @@ class ChatScreen:
         name = "userplugins."+plugin_name+"."+plugin_name
         room = self.room_repo.get(self.room_joined_name)
         user_plugin_class = locate(name)
-        user_plugin_instance=user_plugin_class(room)
+        user_plugin_instance=user_plugin_class()
+        user_plugin_instance.register(room)
         user_plugin_instance.start()
-        self.plugins_loaded.update({plugin_name:user_plugin_instance})
+        self.plugins_loaded.update({plugin_name: user_plugin_instance})
         self.join_window.destroy()
 
     def on_send_message(self):
@@ -114,6 +116,9 @@ class ChatScreen:
         btn = Button(frame, text=' Join ', command=self.on_join)
         btn.pack(side=RIGHT, padx=5)
         frame.pack(padx=100, pady=19)
+        x = self.main_frame.winfo_rootx()
+        y = self.main_frame.winfo_rooty()
+        self.join_window.geometry('%dx%d+%d+%d'%(300,200,x,y))
         self.join_window.mainloop()
 
     def on_join(self):
@@ -126,21 +131,21 @@ class ChatScreen:
 
     def on_new_messages(self,data):
         if not self.closed:
-            self.string_data = data.value.decode("utf-8")
-            event = Event('','')
-            event.deserialize(self.string_data)
+            string_data = data.value.decode("utf-8")
+            event = GenericEvent()
+            event.deserialize(string_data)
             if event.get_type() == 'NewFlow':
-                self.listbox.insert(END, self.string_data)
-                self.request_user_accept_flow(self.string_data)
+                self.listbox.insert(END, string_data)
+                self.request_user_accept_flow(string_data)
             else:
-                self.listbox.insert(END, self.string_data)
+                self.listbox.insert(END, string_data)
 
     def request_user_accept_flow(self, string_data):
         print("accepting flow")
-        self.event_flow = NewFlowEvent('', '', '')
+        self.event_flow = NewFlowEvent()
         self.event_flow.deserialize(string_data)
         self.accept_flow_window = Tk()
-        self.accept_flow_window.title('Incoming flow')
+        self.accept_flow_window.title('Incoming flow on room '+self.room_joined_name)
         frame = Frame(self.accept_flow_window)
         label = Label(self.accept_flow_window, text=' Accept incoming flow with name: '+self.event_flow.get_body())
         label.pack(padx=15, pady=5)
@@ -149,31 +154,25 @@ class ChatScreen:
         btn.pack(side=RIGHT, padx=5)
         btn2.pack(side=RIGHT, padx=5)
         frame.pack(padx=10, pady=10)
+        x = self.main_frame.winfo_rootx()
+        y = self.main_frame.winfo_rooty()
+        self.accept_flow_window.geometry('%dx%d+%d+%d'%(500,200,x,y))
         self.accept_flow_window.mainloop()
 
     def on_accept_flow(self):
         print("accepting flow", self.event_flow)
         self.accept_flow_window.destroy()
         room = self.room_repo.get(self.room_joined_name)
-        flow = None
         flow_creator = DefaultFlowCreator()
-        if self.event_flow.get_flow_type() == "Flower":
-            flow = flow_creator.create_flowing(self.event_flow.get_body(),
-                                               self.event_flow.get_partition())
-        elif self.event_flow.get_type() == "Flowing":
-            flow = flow_creator.create_flowing(self.event_flow.get_body(),
-                                              self.event_flow.get_partition())
-        else:
-            flow = flow_creator.create_dual_flow(self.event_flow.get_body(),
-                                              self.event_flow.get_partition())
+        flow = flow_creator.create_flowing(self.event_flow.get_body(),
+                                           self.event_flow.get_partition())
         room.accept_flow(flow, self.on_new_messages)
 
     def on_not_accept_flow(self):
-        print("not accepting flow",self.event_flow)
         self.accept_flow_window.destroy()
 
     def close(self):
-        self.closed=True
+        self.closed = True
         self.room_repo.close()
         for name, plugin in self.plugins_loaded.items():
             plugin.stop()

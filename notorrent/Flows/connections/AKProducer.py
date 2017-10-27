@@ -24,7 +24,10 @@ class AKProducer:
 
     def send(self, data):
         if not self.stopping:
-            self.producer.send(self.userconf['topics'][0], bytes(data, encoding='utf-8'), None, self.userconf['partition'][0])
+            self.producer.send(self.userconf['topics'][0],
+                               bytes(data, encoding='utf-8'),
+                               None,
+                               self.userconf['partition'][0])
             print("Sent message:", data, " to ", self.userconf['topics'])
 
     def stop(self):

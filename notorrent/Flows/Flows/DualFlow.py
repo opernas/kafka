@@ -12,16 +12,10 @@ class DualFlow(Flow):
         self.flower.start()
 
     def get_name(self):
-        if self.flower.get_name() is self.flowing.get_name():
-            return self.flower.get_name()
-        else:
-            raise DualFlowDifferentDestination()
-
-    def get_type(self):
-        return "DualFlow"
+        return self.flower.get_name()
 
     def get_partition(self):
-        return self.flowing.get_partition()
+        return self.flower.get_partition()
 
     def send(self, data):
         self.flower.send(data)
