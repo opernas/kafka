@@ -46,8 +46,8 @@ class AKConsumer(Thread):
             partitions = self.consumer.poll(300,1)
             for p in partitions:
                 for response in partitions[p]:
-                    self._receive(response)
                     self.consumer.commit()
+                    self._receive(response)
         print('Consuming thread from ', self.userconf['topics'], ' in partition ', self.userconf['partition'], ' out.')
 
     def _receive(self, msg):

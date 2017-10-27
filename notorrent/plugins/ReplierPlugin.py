@@ -7,7 +7,7 @@ class ReplierPlugin:
 
     def register(self, flower_name, flower_partition_id,
                  flowing_name, flowing_partition_id, room):
-        flow_creator = DefaultFlowCreator()
+        flow_creator = DefaultFlowCreator(room)
         self.dual = flow_creator.create_dual_flow(flower_name, flower_partition_id,
                                                   flowing_name, flowing_partition_id)
         room.new_flow(self.dual)

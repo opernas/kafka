@@ -1,37 +1,26 @@
 from DefaultFlowCreator import DefaultFlowCreator
 
 
-class StorerPlugin():
+class StorerPlugin:
     def __init__(self):
-        self.flower = None
+        self.flowing = None
 
-    def register(self, flow_name, flow_partition, room):
-        Thread.__init__(self)
-        flow_creator = DefaultFlowCreator()
-        self.flower = flow_creator.create_flower(flow_name, flow_partition)
+    def register(self, flowing_name, flowing_partition, room):
+        flow_creator = DefaultFlowCreator(room)
+        self.flowing = flow_creator.create_flowing(flowing_name,
+                                                   flowing_partition)
+        room.accept_flow(self.flowing, self.on_unmarshall_message)
         ##user subclass callback
-        room.new_flow(self.flower)
         self.on_registered()
 
-    def run(self):
+    def on_unmarshall_message(self, data):
+        self.on_message(data.value.decode("utf-8"))
+
+    def start(self):
         ##user subclass callback
         self.on_start()
-        self.flower.start()
-
-    def send(self, data):
-        self.flower.send(data)
 
     def stop(self):
         ##user subclass callback
         self.on_stop()
-        self.flower.stop()
-
-    def on_registered(self):
-        raise NotImplementedError
-
-    def on_start(self):
-        raise NotImplementedError
-
-    def on_stop(self):
-        raise NotImplementedError
 

@@ -36,8 +36,8 @@ class Room:
             return False
 
     def notify_to_remote_control_channel(self, flow, flow_event):
-        if flow.get_name() != self.default_flow.get_name():
-            flow_control_channel = DefaultFlowCreator().create_flower(flow.get_name(), 0)
+        if not self.flow_goes_to_this_room(flow):
+            flow_control_channel = DefaultFlowCreator(self).create_flower(flow.get_name(), 0)
             flow_control_channel.start()
             flow_control_channel.send(flow_event.serialize())
             flow_control_channel.stop()

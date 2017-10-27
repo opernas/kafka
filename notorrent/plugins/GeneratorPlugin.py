@@ -8,8 +8,9 @@ class GeneratorPlugin(Thread):
 
     def register(self, flow_name, flow_partition, room):
         Thread.__init__(self)
-        flow_creator = DefaultFlowCreator()
-        self.flower = flow_creator.create_flower(flow_name, flow_partition)
+        flow_creator = DefaultFlowCreator(room)
+        self.flower = flow_creator.create_flower(flow_name,
+                                                 flow_partition)
         ##user subclass callback
         room.new_flow(self.flower)
         self.on_registered()

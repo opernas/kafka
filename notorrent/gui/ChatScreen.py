@@ -163,7 +163,7 @@ class ChatScreen:
         print("accepting flow", self.event_flow)
         self.accept_flow_window.destroy()
         room = self.room_repo.get(self.room_joined_name)
-        flow_creator = DefaultFlowCreator()
+        flow_creator = DefaultFlowCreator(room)
         flow = flow_creator.create_flowing(self.event_flow.get_body(),
                                            self.event_flow.get_partition())
         room.accept_flow(flow, self.on_new_messages)
