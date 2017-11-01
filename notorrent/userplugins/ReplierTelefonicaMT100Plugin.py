@@ -2,16 +2,16 @@ from TextMessageEvent import TextMessageEvent
 from ReplierPlugin import ReplierPlugin
 
 
-class ReplierTelefonicaMT1000Plugin(ReplierPlugin):
+class ReplierTelefonicaMT100Plugin(ReplierPlugin):
     def register(self, room):
-        super().register("Telefonica_higher", 1,
-                         "Telefonica_quotation", 1,  room)
+        super().register("Telefonica_alarms", 1,
+                         "Telefonica_higher", 1,  room)
 
     def on_new_message(self, data):
         event = TextMessageEvent()
         event.deserialize(data)
         telefonica_quote = event.get_body()
-        if int(telefonica_quote) < 1000:
+        if int(telefonica_quote) < 500:
             toSent = TextMessageEvent(str(telefonica_quote))
             return toSent.serialize()
 

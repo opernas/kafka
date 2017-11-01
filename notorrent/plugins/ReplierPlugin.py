@@ -15,7 +15,9 @@ class ReplierPlugin:
         self.on_registered()
 
     def on_message(self, data):
-        self.dual.send(self.on_new_message(data))
+        data_to_send = self.on_new_message(data.value.decode("utf-8"))
+        if data_to_send:
+            self.dual.send(data_to_send)
 
     def start(self):
         self.on_start()

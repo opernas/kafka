@@ -1,3 +1,6 @@
+import random
+import string
+
 from events.NewFlowEvent import NewFlowEvent
 from events.UserOnlineEvent import UserOnlineEvent
 from events.UserOfflineEvent import UserOfflineEvent
@@ -10,6 +13,7 @@ class Room:
         self.conf = room_conf
         self.default_flow = default_flow
         self.callback = None
+        self.uid = room_conf['name']+"_"+self.get_random_string()
         if 'owner' not in self.conf:
             self.conf.update({'owner': 'anonymous'})
 
@@ -66,6 +70,12 @@ class Room:
 
     def get_name(self):
         return self.conf['name']
+
+    def get_random_string(self, size=6, chars=string.ascii_uppercase + string.digits):
+        return ''.join(random.choice(chars) for _ in range(size))
+
+    def get_unique_name(self):
+        return self.uid
 
     def stop(self):
         self.notify_off_user()

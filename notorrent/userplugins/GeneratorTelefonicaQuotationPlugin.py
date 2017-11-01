@@ -19,7 +19,7 @@ class GeneratorTelefonicaQuotationPlugin(GeneratorPlugin):
         self.stopped = False
         while not self.stopped:
             time.sleep(3)
-            new_text_message = TextMessageEvent(str(random.randint(1, 100000)))
+            new_text_message = TextMessageEvent(str(random.randint(1, 2000)))
             self.send(new_text_message.serialize())
 
     def on_stop(self):
